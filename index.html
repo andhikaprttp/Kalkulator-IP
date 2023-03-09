@@ -116,23 +116,23 @@
 			// Menentukan Subnetmask berdasarkan kelas IP address
 			let subnetMask = '';
 			switch (ipAddressKelas) {
-				case 'Kelas A':
+				case 'Kelas : A':
 					subnetMask = '255.0.0.0';
 					break;
-				case 'Kelas B':
+				case 'Kelas : B':
 					subnetMask = '255.255.0.0';
 					break;
-				case 'Kelas C':
+				case 'Kelas : C':
 					subnetMask = '255.255.255.0';
 					break;
-				case 'Kelas D':
+				case 'Kelas : D':
 				  subnetMask = 'N/A';
 					break;
-				case 'Kelas E':
+				case 'Kelas : E':
 					subnetMask = 'N/A';
 					break;
 				default:
-					subnetMask = 'Invalid IP Address';
+					subnetMask = 'IP Address Tidak Valid';
 					break;
 			}
 
