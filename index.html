@@ -1,150 +1,152 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>IP Kalkulator | SMK RADEN PAKU</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style type="text/css">
-		body {
-			font-family: Arial, sans-serif;
-			font-size: 14px;
-			margin: 0;
-			padding: 0;
-		}
+  <title>IP Kalkulator | SMK RADEN PAKU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
 
-		.container {
-			max-width: 600px;
-			margin: 0 auto;
-			padding: 20px;
-		}
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-		h1 {
-			font-size: 24px;
-			margin-bottom: 20px;
-		}
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
 
-		label {
-			display: block;
-			margin-bottom: 10px;
-		}
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
 
-		input[type="text"] {
-			width: 100%;
-			padding: 5px;
-			border-radius: 5px;
-			border: 1px solid #ccc;
-			margin-bottom: 20px;
-			box-sizing: border-box;
-		}
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
 
-		input[type="submit"] {
-			background-color: #4CAF50;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-		input[type="submit"]:hover {
-			background-color: #3e8e41;
-		}
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
 
-		.hasil {
-			margin-top: 20px;
-			padding: 10px;
-			border-radius: 5px;
-			border: 1px solid #ccc;
-			background-color: #f2f2f2;
-		}
-		
-.footer {
-   background-color: #4CAF50;
-   padding:20px;
-   font-family: Sans-Serif;
-}
+    .hasil {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+    }
 
-.fo-text {
-  color: #f7f7f7;
-  text-align: center;
-  text-decoration: none;
-}
+    .footer {
+      background-color: #4CAF50;
+      padding: 20px;
+      font-family: Sans-Serif;
+    }
 
-.a {text-decoration: none;
-    
-}
-	</style>
+    .fo-text {
+      color: #f7f7f7;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .a {
+      text-decoration: none;
+
+    }
+  </style>
 </head>
 <body>
-	<div class="container">
-		<h1>IP Kalkulator</h1>
-		<p>
-		  Program menentukan Kelas dan Subnet Mask IP Address dibuat oleh <a class="a" href="https://andhikaprttp.github.io/web-tkj">X TKJ 1</a> 
-		</p>
-		<form onsubmit="hitungSubnetMask(event)">
-			<label for="ip-address">IP Address</label>
-			<input type="text" id="ip-address" placeholder="Masukan IP Address">
-			<input type="submit" value="Hitung">
-		</form>
-		<div class="hasil" id="hasil"></div>
-	</div>
-  
-	<div class="footer">
-	  <p class="fo-text">Di buat <a class="a" href="https://andhikaprttp.github.io/web-tkj">X TKJ 1</a> SMK RADEN PAKU WRINGINANOM</p> 
-	</div>
-	<script type="text/javascript">
-         // andhika pratama putra
-		function hitungSubnetMask(event) {
-			event.preventDefault();
+  <div class="container">
+    <h1>IP Kalkulator</h1>
+    <p>
+      Program menentukan Kelas dan Subnet Mask IP Address dibuat oleh <a class="a" href="https://andhikaprttp.github.io/web-tkj">X TKJ 1</a>
+    </p>
+    <form onsubmit="hitungSubnetMask(event)">
+      <label for="ip-address">IP Address</label>
+      <input type="text" id="ip-address" placeholder="Masukan IP Address">
+      <input type="submit" value="Hitung">
+    </form>
+    <div class="hasil" id="hasil"></div>
+  </div>
 
-			const ipAddress = document.getElementById('ip-address').value;
-			const oktet = ipAddress.split('.');
+  <div class="footer">
+    <p class="fo-text">
+      Di buat <a class="a" href="https://andhikaprttp.github.io/web-tkj">X TKJ 1</a> SMK RADEN PAKU WRINGINANOM
+    </p>
+  </div>
+  <script type="text/javascript">
+    // andhika pratama putra
+    function hitungSubnetMask(event) {
+      event.preventDefault();
+     // IP Address Calc
+      const ipAddress = document.getElementById('ip-address').value;
+      const oktet = ipAddress.split('.');
 
-			// Menentukan kelas IP address
-			let ipAddressKelas = '';
-			if (oktet[0] >= 1 && oktet[0] <= 126) {
-				ipAddressKelas = 'Kelas : A';
-			} else if (oktet[0] >= 128 && oktet[0] <= 191) {
-				ipAddressKelas = 'Kelas : B';
-			} else if (oktet[0] >= 192 && oktet[0] <= 223) {
-				ipAddressKelas = 'Kelas : C';
-			} else if (oktet[0] >= 224 && oktet[0] <= 239) {
-				ipAddressKelas = 'Kelas : D';
-			} else if (oktet[0] >= 240 && oktet[0] <= 255) {
-				ipAddressKelas = 'Kelas : E';
-			}
+      // Menentukan kelas IP address
+      let ipAddressKelas = '';
+      if (oktet[0] >= 1 && oktet[0] <= 126) {
+        ipAddressKelas = 'Kelas : A';
+      } else if (oktet[0] >= 128 && oktet[0] <= 191) {
+        ipAddressKelas = 'Kelas : B';
+      } else if (oktet[0] >= 192 && oktet[0] <= 223) {
+        ipAddressKelas = 'Kelas : C';
+      } else if (oktet[0] >= 224 && oktet[0] <= 239) {
+        ipAddressKelas = 'Kelas : D';
+      } else if (oktet[0] >= 240 && oktet[0] <= 255) {
+        ipAddressKelas = 'Kelas : E';
+      }
 
-			// Menentukan Subnetmask berdasarkan kelas IP address
-			let subnetMask = '';
-			switch (ipAddressKelas) {
-				case 'Kelas : A':
-					subnetMask = '255.0.0.0';
-					break;
-				case 'Kelas : B':
-					subnetMask = '255.255.0.0';
-					break;
-				case 'Kelas : C':
-					subnetMask = '255.255.255.0';
-					break;
-				case 'Kelas : D':
-				  subnetMask = 'N/A';
-					break;
-				case 'Kelas : E':
-					subnetMask = 'N/A';
-					break;
-				default:
-					subnetMask = 'IP Address Tidak Valid';
-					break;
-			}
+      // Menentukan Subnetmask berdasarkan kelas IP address
+      let subnetMask = '';
+      switch (ipAddressKelas) {
+        case 'Kelas : A':
+          subnetMask = '255.0.0.0';
+          break;
+        case 'Kelas : B':
+          subnetMask = '255.255.0.0';
+          break;
+        case 'Kelas : C':
+          subnetMask = '255.255.255.0';
+          break;
+        case 'Kelas : D':
+          subnetMask = 'N/A';
+          break;
+        case 'Kelas : E':
+          subnetMask = 'N/A';
+          break;
+        default:
+          subnetMask = 'IP Address Tidak Valid';
+          break;
+      }
 
-			// Menampilkan hasil
-			const resultDiv = document.getElementById('hasil');
-			resultDiv.innerHTML = `
-				<p>IP Address: ${ipAddress}</p>
-				<p>${ipAddressKelas}</p>
-				<p>Subnet Mask: ${subnetMask}</p>
-			`;
-		}
-	</script>
+      // Menampilkan hasil
+      const resultDiv = document.getElementById('hasil');
+      resultDiv.innerHTML = `
+      <p>IP Address: ${ipAddress}</p>
+      <p>${ipAddressKelas}</p>
+      <p>Subnet Mask: ${subnetMask}</p>
+      `;
+    }
+  </script>
 </body>
 </html>
-
