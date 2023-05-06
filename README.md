@@ -1,8 +1,7 @@
 # Kalkulator-IP
-Program menentukan kelas dan subnetmask alamat IP
+Program web menentukan kelas dan subnetmask alamat IP dengan menggunakan Javascript 
 
-![Screenshot_20230329-095111](https://user-images.githubusercontent.com/120385412/228414247-7d4501f0-20bb-471d-9b89-ee4f17a14a4c.png)
-
+![Screenshot_20230506-101308](https://user-images.githubusercontent.com/120385412/236595776-fbe13d2c-0104-4f9f-b8e6-f66f21a3da8d.png)
 
 
 
